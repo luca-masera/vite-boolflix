@@ -1,24 +1,32 @@
 <template>
   <section class="container">
+    <SearchBar @search-movie=searchMovie />
     <div class="row">
       <div v-for="(movie, index) in store.movieList">
-        {{ movie.title }} {{ movie.original_title }} {{ movie.original_language
-        }} {{ movie.vote_average }}
+        <MainApp :titolo="movie.title" :titolo-originale="movie.original_title" :lingua="movie.original_language" :voto="movie.vote_average
+        " />
+        <MainApp />
 
       </div>
 
     </div>
 
+
+
   </section>
 </template>
 
 <script>
+import SearchBar from './components/searchBar.vue';
 import axios from 'axios'
 import { store } from './data/store.js';
+import MainApp from './components/MainApp.vue';
+
 export default {
   name: 'App',
   components: {
-
+    SearchBar,
+    MainApp
   },
   data() {
 
@@ -28,6 +36,20 @@ export default {
   },
 
   methods: {
+    searchMovie(resp) {
+      console.log(resp)
+      if (resp != '') {
+
+        this.store.params = {
+
+          movieList: resp
+        }
+      }
+      this.getMovie()
+
+
+    },
+
     getMovie() {
       const movie = store.apiUrl + store.endPoint.movies
       axios.get(movie, { params: this.store.params }).then((res) => {
