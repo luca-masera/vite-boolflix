@@ -1,7 +1,7 @@
 <template>
     <div>
         <h2>{{ titolo }}</h2>
-        <h2>{{ titolo - originale }}</h2>
+        <h2>{{ titolo_originale }}</h2>
         <h2>{{ lingua }}</h2>
         <h2>{{ voto }}</h2>
 
@@ -14,7 +14,7 @@ export default {
     name: 'MainApp',
     props: [
         'titolo',
-        'titolo-originale',
+        'titolo_originale',
         'lingua',
         'voto'
     ],

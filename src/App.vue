@@ -1,9 +1,9 @@
 <template>
   <section class="container">
-    <SearchBar @search-movie=searchMovie />
+    <SearchBar @searchMovie=searchFilm />
     <div class="row">
       <div v-for="(movie, index) in store.movieList">
-        <MainApp :titolo="movie.title" :titolo-originale="movie.original_title" :lingua="movie.original_language" :voto="movie.vote_average
+        <MainApp :titolo="movie.title" :titolo_originale="movie.original_title" :lingua="movie.original_language" :voto="movie.vote_average
         " />
         <MainApp />
 
@@ -36,13 +36,13 @@ export default {
   },
 
   methods: {
-    searchMovie(resp) {
+    searchFilm(resp) {
       console.log(resp)
       if (resp != '') {
 
         this.store.params = {
-
-          movieList: resp
+          api_key: "e283e0e72de0c7e59c51a9bf36b8421c",
+          query: resp,
         }
       }
       this.getMovie()
