@@ -1,7 +1,15 @@
 <template>
-  <div>
-    CIAO
-  </div>
+  <section class="container">
+    <div class="row">
+      <div v-for="(movie, index) in store.movieList">
+        {{ movie.title }} {{ movie.original_title }} {{ movie.original_language
+        }} {{ movie.vote_average }}
+
+      </div>
+
+    </div>
+
+  </section>
 </template>
 
 <script>
@@ -23,7 +31,8 @@ export default {
     getMovie() {
       const movie = store.apiUrl + store.endPoint.movies
       axios.get(movie, { params: this.store.params }).then((res) => {
-        console.log(res)
+        console.log(res.data.results)
+        store.movieList = (res.data.results)
 
       })
 

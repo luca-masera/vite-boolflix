@@ -10,7 +10,7 @@ export const store = reactive({
     },
 
     params: {
-        myapi_key: "e283e0e72de0c7e59c51a9bf36b8421c",
+        api_key: "e283e0e72de0c7e59c51a9bf36b8421c",
         query: "a",
     },
 
