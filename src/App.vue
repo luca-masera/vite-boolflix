@@ -48,6 +48,7 @@ export default {
       this.getMovie()
 
 
+
     },
 
     getMovie() {
@@ -58,11 +59,23 @@ export default {
 
       })
 
-    }
+    },
+    getSerieTv() {
+      const movie = store.apiUrl + store.endPoint.serieTv
+      axios.get(movie, { params: this.store.params }).then((res) => {
+        console.log(res.data.results)
+        store.serieTvList = (res.data.results)
+
+      })
+
+    },
+
+
 
   },
   created() {
     this.getMovie();
+
   }
 
 }
