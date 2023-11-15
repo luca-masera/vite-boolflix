@@ -8,6 +8,13 @@
         <MainApp />
 
       </div>
+      <div v-for="(serieTv, index) in store.serieTvList">
+        <MainApp :title="serieTv.name" :title_original="serieTv.original_name" :language="serieTv.original_language"
+          :vote="serieTv.vote_average
+          " />
+        <MainApp />
+
+      </div>
 
     </div>
 
@@ -45,7 +52,8 @@ export default {
           query: resp,
         }
       }
-      this.getMovie()
+      this.getMovie(),
+        this.getSerieTv()
 
 
 
@@ -75,6 +83,7 @@ export default {
   },
   created() {
     this.getMovie();
+    this.getSerieTv()
 
   }
 
