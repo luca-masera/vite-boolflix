@@ -5,10 +5,13 @@
 </template>
 
 <script>
-import { store } from './data/store';
+import axios from 'axios'
+import { store } from './data/store.js';
 export default {
   name: 'App',
+  components: {
 
+  },
   data() {
 
     return {
@@ -16,9 +19,21 @@ export default {
     }
   },
 
-  components: {
+  methods: {
+    getMovie() {
+      const movie = store.apiUrl + store.endPoint.movies
+      axios.get(movie, { params: this.store.params }).then((res) => {
+        console.log(res)
 
+      })
+
+    }
+
+  },
+  created() {
+    this.getMovie();
   }
+
 }
 </script>
 
