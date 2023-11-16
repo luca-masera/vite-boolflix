@@ -11,12 +11,18 @@ export const store = reactive({
 
     params: {
         api_key: "e283e0e72de0c7e59c51a9bf36b8421c",
-        query: "a",
-        language: ''
+        query: '',
+
     },
 
 
-    movieList: [],
+    movieList: [
+
+        {
+            original_language: 'it',
+            img: '/images/Flag_of_Italy_Flat_Wavy-512x393.png'
+        },
+    ],
     serieTvList: []
 
 });

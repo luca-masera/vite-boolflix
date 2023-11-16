@@ -7,6 +7,7 @@
         " />
         <MainApp />
 
+
       </div>
       <div v-for="(serieTv, index) in store.serieTvList">
         <MainApp :title="serieTv.name" :title_original="serieTv.original_name" :language="serieTv.original_language"
@@ -50,12 +51,11 @@ export default {
         this.store.params = {
           api_key: "e283e0e72de0c7e59c51a9bf36b8421c",
           query: resp,
+          language: resp
         }
       }
       this.getMovie(),
         this.getSerieTv()
-
-
 
     },
 
@@ -63,6 +63,7 @@ export default {
       const movie = store.apiUrl + store.endPoint.movies
       axios.get(movie, { params: this.store.params }).then((res) => {
         console.log(res.data.results)
+
         store.movieList = (res.data.results)
 
       })
@@ -78,12 +79,10 @@ export default {
 
     },
 
-
-
   },
   created() {
     this.getMovie();
-    this.getSerieTv()
+    this.getSerieTv();
 
   }
 

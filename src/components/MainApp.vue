@@ -2,7 +2,9 @@
     <div class="container bg-danger bg ">
         <h2>{{ titolo }}</h2>
         <h2>{{ titolo_originale }}</h2>
-        <h2>{{ lingua }}</h2>
+        <span>
+            <img :src="addFlagTv" :alt="lingua + 'flag'">
+        </span>
         <h2>{{ voto }}</h2>
     </div>
     <div class="container bg-info ">
@@ -14,7 +16,7 @@
 </template>
 
 <script>
-import { store } from '../data/store.js';
+
 export default {
     name: 'MainApp',
     props: [
@@ -32,13 +34,34 @@ export default {
     data() {
 
         return {
-            store
+            flags: [
+                'ch',
+                'en',
+                'es',
+                'fr',
+                'gr',
+                'india',
+                'it',
+                'jp',
+                'usa'
+            ]
         }
 
+    },
+
+    computed: {
+        addFlagTv() {
+            let flag = `/images/${this.lingua}.png`;
+
+            if (!this.flags.includes(this.lingua)) {
+                flag = `/images/fake.png`
+
+            }
+            return flag
+        },
+
+
     }
-
-
-
 
 }
 </script>
