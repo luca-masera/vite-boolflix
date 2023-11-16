@@ -5,6 +5,9 @@
         <span>
             <img :src="addFlagTv" :alt="lingua + 'flag'">
         </span>
+        <span>
+
+        </span>
         <h2>{{ voto }}</h2>
     </div>
 </template>
@@ -26,14 +29,14 @@ export default {
 
         return {
             flags: [
-                'ch',
+                'zh',
                 'en',
                 'es',
                 'fr',
-                'gr',
+                'de',
                 'india',
                 'it',
-                'jp',
+                'ja',
                 'usa'
             ]
 
@@ -50,6 +53,9 @@ export default {
 
             }
             return flag
+        },
+        getStar() {
+            return Math.ceil(this.voto / 2);
         }
 
 

@@ -16,13 +16,8 @@ export const store = reactive({
     },
 
 
-    movieList: [
-
-        {
-            original_language: 'it',
-            img: '/images/Flag_of_Italy_Flat_Wavy-512x393.png'
-        },
-    ],
-    serieTvList: []
+    movieList: [],
+    serieTvList: [],
+    img: "https://image.tmdb.org/t/p/w780",
 
 });

@@ -60,7 +60,8 @@ export default {
         }
       }
       this.getMovie(),
-        this.getSerieTv()
+        this.getSerieTv(),
+        this.getImage()
 
     },
 
@@ -75,19 +76,28 @@ export default {
 
     },
     getSerieTv() {
-      const movie = store.apiUrl + store.endPoint.serieTv
-      axios.get(movie, { params: this.store.params }).then((res) => {
+      const movies = store.apiUrl + store.endPoint.serieTv
+      axios.get(movies, { params: this.store.params }).then((res) => {
         console.log(res.data.results)
         store.serieTvList = (res.data.results)
 
       })
 
     },
+    getImage() {
+
+      const image = store.img
+      axios.get(image).then((response) => {
+        console.log(img)
+
+      })
+    }
 
   },
   created() {
     this.getMovie();
     this.getSerieTv();
+    this.getImage()
 
   }
 

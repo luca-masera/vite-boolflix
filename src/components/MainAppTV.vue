@@ -22,14 +22,14 @@ export default {
 
         return {
             flagTv: [
-                'ch',
+                'zh',
                 'en',
                 'es',
                 'fr',
-                'gr',
+                'de',
                 'india',
                 'it',
-                'jp',
+                'ja',
                 'usa'
             ]
         }
