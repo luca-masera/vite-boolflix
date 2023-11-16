@@ -1,40 +1,45 @@
 <template>
   <section class="container">
     <SearchBar @searchMovie=searchFilm />
+  </section>
+  <div id="movie" class="container">
+    <h3>Movies</h3>
     <div class="row">
       <div v-for="(movie, index) in store.movieList">
-        <MainApp :titolo="movie.title" :titolo_originale="movie.original_title" :lingua="movie.original_language" :voto="movie.vote_average
-        " />
-        <MainApp />
-
-
-      </div>
-      <div v-for="(serieTv, index) in store.serieTvList">
-        <MainApp :title="serieTv.name" :title_original="serieTv.original_name" :language="serieTv.original_language"
-          :vote="serieTv.vote_average
+        <MainAppMovie :titolo="movie.title" :titolo_originale="movie.original_title" :lingua="movie.original_language"
+          :voto="movie.vote_average
           " />
-        <MainApp />
 
       </div>
+    </div>
+    <div id="serieTv" class="container">
+      <h3>serie Tv</h3>
+      <div class="row">
+        <div v-for="(serieTv, index) in store.serieTvList">
+          <MainAppTV :title="serieTv.name" :title_original="serieTv.original_name" :language="serieTv.original_language"
+            :vote="serieTv.vote_average
+            " />
 
+        </div>
+      </div>
     </div>
 
-
-
-  </section>
+  </div>
 </template>
 
 <script>
 import SearchBar from './components/searchBar.vue';
 import axios from 'axios'
 import { store } from './data/store.js';
-import MainApp from './components/MainApp.vue';
+import MainAppMovie from './components/MainAppMovie.vue';
+import MainAppTV from './components/MainAppTV.vue'
 
 export default {
   name: 'App',
   components: {
     SearchBar,
-    MainApp
+    MainAppMovie,
+    MainAppTV
   },
   data() {
 

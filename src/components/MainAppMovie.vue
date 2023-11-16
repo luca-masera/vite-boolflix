@@ -7,27 +7,18 @@
         </span>
         <h2>{{ voto }}</h2>
     </div>
-    <div class="container bg-info ">
-        <h2>{{ title }}</h2>
-        <h2>{{ title_original }}</h2>
-        <h2>{{ language }}</h2>
-        <h2>{{ vote }}</h2>
-    </div>
 </template>
 
 <script>
 
 export default {
-    name: 'MainApp',
+    name: 'MainAppMovie',
     props: [
         'titolo',
         'titolo_originale',
         'lingua',
-        'voto',
-        'title',
-        'title_original',
-        'language',
-        'vote'
+        'voto'
+
     ],
 
 
@@ -45,6 +36,7 @@ export default {
                 'jp',
                 'usa'
             ]
+
         }
 
     },
@@ -58,7 +50,7 @@ export default {
 
             }
             return flag
-        },
+        }
 
 
     }
@@ -66,5 +58,9 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="css" scoped>
+img {
+    width: 50px;
+}
+</style>
 {{}}
