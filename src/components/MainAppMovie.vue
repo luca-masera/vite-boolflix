@@ -66,9 +66,13 @@ export default {
             return Math.ceil(this.voto / 2);
         },
         imagePath() {
+            let image = store.img + this.immagine
 
-
-            return store.img + this.immagine
+            if (this.immagine === null) {
+                image = '/images/stop.png'
+            }
+            console.log(image)
+            return image
         }
     }
 }

@@ -42,6 +42,7 @@ export default {
         addFlagSerieTv() {
             let flagTv = `/images/${this.language}.png`;
 
+
             if (!this.flagTv.includes(this.language)) {
                 flagTv = `/images/fake.png`
 
@@ -49,13 +50,13 @@ export default {
             return flagTv
         },
         imagePathTv() {
-            let img = store.img + this.image
+            let immagine = store.img + this.image
 
             if (this.image === null) {
-                this.image === '6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg'
+                immagine = '/images/stop.png'
             }
-            console.log(img)
-            return img
+            console.log(immagine)
+            return immagine
         },
         getStar() {
             return Math.ceil(this.vote / 2);
