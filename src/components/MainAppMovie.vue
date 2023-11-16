@@ -2,20 +2,19 @@
     <div class="container bg-danger bg ">
         <h2>{{ titolo }}</h2>
         <h2>{{ titolo_originale }}</h2>
-        <span>
+        <div>
             <img :src="addFlagTv" :alt="lingua + 'flag'">
             <img :src="imagePath" />
-        </span>
-        <span>
-            <i v-for="num in 5" :key="num" class="fa-star" :class="(num <= getStar) ? 'fa-solid' : 'fa-regular'">{{ getStar
-            }}</i>
-        </span>
-        <h2>{{ voto }}</h2>
+        </div>
+
+        <i v-for="num in 5" :key="num" class="fa-star" :class="(num <= getStar) ? 'fa-solid' : 'fa-regular'"></i>
+
     </div>
 </template>
 
 <script>
 import { store } from '../data/store.js';
+import axios from 'axios'
 export default {
 
     name: 'MainAppMovie',
@@ -42,12 +41,25 @@ export default {
                 'ja',
                 'usa'
             ],
+            poster_pach: ''
 
 
         }
 
     },
 
+    methods: {
+        imagePath() {
+
+            const image = store.img
+            axios.get(image + this.poster_pach).then((response) => {
+                console.log(response)
+
+            })
+
+        }
+
+    },
     computed: {
         addFlagTv() {
             let flag = `/images/${this.lingua}.png`;
@@ -61,17 +73,12 @@ export default {
         getStar() {
             return Math.ceil(this.voto / 2);
         },
-        imagePath() {
 
-            const image = store.img
-            axios.get(image + this.poster_pach).then((response) => {
-                console.log(response)
+    },
 
-            })
-
-        }
+    created() {
+        this.imagePath()
     }
-
 }
 
 

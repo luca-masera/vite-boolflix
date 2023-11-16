@@ -5,7 +5,7 @@
   <div id="movie" class="container">
     <h3>Movies</h3>
     <div class="row">
-      <div v-for="(movie, index) in store.movieList">
+      <div class="my-3" v-for="(movie, index) in store.movieList">
         <MainAppMovie :titolo="movie.title" :titolo_originale="movie.original_title" :lingua="movie.original_language"
           :voto="movie.vote_average
           " />
