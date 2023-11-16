@@ -2,21 +2,25 @@
     <div class="container bg-info ">
         <h2>{{ title }}</h2>
         <h2>{{ title_original }}</h2>
-        <span>
+        <div>
             <img :src="addFlagSerieTv" :alt="language + 'flagTv'">
-        </span>
-        <h2>{{ vote }}</h2>
+            <img :src="imagePathTv" />
+        </div>
+        <i v-for="num in 5" :key="num" class="fa-star" :class="(num <= getStar) ? 'fa-solid' : 'fa-regular'"></i>
+
     </div>
 </template>
 
 <script>
+import { store } from '../data/store.js';
 export default {
     name: 'MainAppTV',
     props: [
         'title',
         'title_original',
         'language',
-        'vote'
+        'vote',
+        'image'
     ],
     data() {
 
@@ -43,6 +47,18 @@ export default {
 
             }
             return flagTv
+        },
+        imagePathTv() {
+            let img = store.img + this.image
+
+            if (this.image === null) {
+                this.image === '6FfCtAuVAW8XJjZ7eWeLibRLWTw.jpg'
+            }
+            console.log(img)
+            return img
+        },
+        getStar() {
+            return Math.ceil(this.vote / 2);
         }
     }
 

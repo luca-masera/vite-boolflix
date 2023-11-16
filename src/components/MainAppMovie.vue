@@ -14,7 +14,6 @@
 
 <script>
 import { store } from '../data/store.js';
-import axios from 'axios'
 export default {
 
     name: 'MainAppMovie',
@@ -22,7 +21,9 @@ export default {
         'titolo',
         'titolo_originale',
         'lingua',
-        'voto'
+        'voto',
+        'immagine'
+
 
     ],
 
@@ -41,25 +42,16 @@ export default {
                 'ja',
                 'usa'
             ],
-            poster_pach: ''
+
+
 
 
         }
 
     },
 
-    methods: {
-        imagePath() {
 
-            const image = store.img
-            axios.get(image + this.poster_pach).then((response) => {
-                console.log(response)
 
-            })
-
-        }
-
-    },
     computed: {
         addFlagTv() {
             let flag = `/images/${this.lingua}.png`;
@@ -73,14 +65,13 @@ export default {
         getStar() {
             return Math.ceil(this.voto / 2);
         },
+        imagePath() {
 
-    },
 
-    created() {
-        this.imagePath()
+            return store.img + this.immagine
+        }
     }
 }
-
 
 </script>
 

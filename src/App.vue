@@ -7,18 +7,17 @@
     <div class="row">
       <div class="my-3" v-for="(movie, index) in store.movieList">
         <MainAppMovie :titolo="movie.title" :titolo_originale="movie.original_title" :lingua="movie.original_language"
-          :voto="movie.vote_average
-          " />
+          :voto="movie.vote_average" :immagine="movie.poster_path" />
+
 
       </div>
     </div>
     <div id="serieTv" class="container">
       <h3>serie Tv</h3>
       <div class="row">
-        <div v-for="(serieTv, index) in store.serieTvList">
+        <div class="my-3" v-for="(serieTv, index) in store.serieTvList">
           <MainAppTV :title="serieTv.name" :title_original="serieTv.original_name" :language="serieTv.original_language"
-            :vote="serieTv.vote_average
-            " />
+            :vote="serieTv.vote_average" :image="serieTv.poster_path" />
 
         </div>
       </div>
@@ -61,7 +60,7 @@ export default {
       }
       this.getMovie(),
         this.getSerieTv()
-      // this.getImage()
+
 
     },
 
@@ -84,20 +83,12 @@ export default {
       })
 
     }
-    /*getImage() {
 
-      const image = store.img
-      axios.get(image).then((response) => {
-        console.log(img)
-
-      })
-    }*/
 
   },
   created() {
     this.getMovie();
     this.getSerieTv();
-    //this.getImage()
 
   }
 
