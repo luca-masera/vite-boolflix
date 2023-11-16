@@ -60,8 +60,8 @@ export default {
         }
       }
       this.getMovie(),
-        this.getSerieTv(),
-        this.getImage()
+        this.getSerieTv()
+      // this.getImage()
 
     },
 
@@ -83,21 +83,21 @@ export default {
 
       })
 
-    },
-    getImage() {
+    }
+    /*getImage() {
 
       const image = store.img
       axios.get(image).then((response) => {
         console.log(img)
 
       })
-    }
+    }*/
 
   },
   created() {
     this.getMovie();
     this.getSerieTv();
-    this.getImage()
+    //this.getImage()
 
   }
 
