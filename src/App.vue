@@ -4,11 +4,12 @@
   </div>
   <div class="background-wrapper">
     <div>
-      <h2 class="pt-3">FILM</h2>
+      <h2 v-if="store.movieList.length" class="pt-3">FILM</h2>
     </div>
 
 
     <div id="movie" class="container d-flex flex-wrap  ">
+
 
       <div class="row d-flex flex-wrap" v-for="(movie, index) in store.movieList" :key="movie.id">
         <MainAppMovie :titolo="movie.title" :titolo_originale="movie.original_title" :lingua="movie.original_language"
@@ -17,7 +18,7 @@
 
       </div>
     </div>
-    <h2>SERIE TV</h2>
+    <h2 v-if="store.serieTvList.length">SERIE TV</h2>
     <div id="serieTV" class="container d-flex flex-wrap  ">
 
       <div class=" row d-flex flex-wrap" v-for="(serieTv, index) in store.serieTvList" :key="serieTv.id">
