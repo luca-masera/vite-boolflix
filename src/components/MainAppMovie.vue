@@ -1,6 +1,6 @@
 <template>
-    <div class="d-flex flex-column align-items-center my-2 mx-2  box-movie">
-        <div class="box-inner">
+    <div class="d-flex flex-column align-items-center my-2 mx-2  box-card">
+        <div class="box-main">
             <div class="box-text">
                 <h6 class="color"><b>Titolo :</b> {{ titolo }}</h6>
                 <h6 class="color"><b>Titolo originale:</b> {{ titolo_originale }}</h6>
@@ -104,7 +104,7 @@ export default {
     width: 45px;
 }
 
-.box-movie {
+.box-card {
     height: 335px;
     width: 250px;
     margin: 10px;
@@ -125,7 +125,7 @@ export default {
     color: yellow;
 }
 
-.box-inner {
+.box-main {
     position: relative;
     width: 100%;
     height: 100%;
@@ -133,7 +133,7 @@ export default {
     transform-style: preserve-3d;
 }
 
-.box-movie:hover .box-inner {
+.box-card:hover .box-main {
     transform: rotateY(180deg);
 }
 

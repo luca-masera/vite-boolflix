@@ -6,7 +6,7 @@
         <div class="d-flex align-items-center">
 
             <input type="search" class="form-control  h-10 " id="search" placeholder=" Film o serie Tv?" v-model="text"
-                @click="$emit('searchMovie', text)">
+                @click="$emit('searchMovie', text)" @keyup.enter="$emit('searchMovie', text)">
             <label for="search"></label>
 
             <button type="button" class="btn btn-danger mt-3 ms-5 mb-4" @click="$emit('searchMovie', text)">Invia</button>

@@ -3,8 +3,11 @@
     <SearchBar @searchMovie=searchFilm />
   </div>
   <div class="background-wrapper">
+    <div>
+      <h2 class="pt-3">FILM</h2>
+    </div>
 
-    <h2 class="pt-3">FILM</h2>
+
     <div id="movie" class="container d-flex flex-wrap  ">
 
       <div class="row d-flex flex-wrap" v-for="(movie, index) in store.movieList" :key="movie.id">
@@ -34,14 +37,14 @@ import SearchBar from './components/searchBar.vue';
 import axios from 'axios'
 import { store } from './data/store.js';
 import MainAppMovie from './components/MainAppMovie.vue';
-//import MainAppTV from './components/MainAppTV.vue'
+
 
 export default {
   name: 'App',
   components: {
     SearchBar,
     MainAppMovie,
-    //MainAppTV
+
   },
   data() {
 
