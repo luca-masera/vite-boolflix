@@ -1,14 +1,18 @@
 <template>
     <div class=" bg-white d-flex flex-column align-items-center m-5  box-serieTv ">
 
-        <h5>Titolo: {{ title }}</h5>
-        <h5>Titolo originale: {{ title_original }}</h5>
+        <h5><b>Titolo :</b> {{ title }}</h5>
+        <h5><b>Titolo originale:</b> {{ title_original }}</h5>
         <div>
             <img :src="addFlagSerieTv" :alt="language + 'flagTv'">
             <img :src="imagePathTv" />
         </div>
         <div>
             <i v-for="num in 5" :key="num" class="fa-star" :class="(num <= getStar) ? 'fa-solid' : 'fa-regular'"></i>
+
+        </div>
+        <div class="overflow">
+            <b>Overview:</b> {{ overview }}
         </div>
     </div>
 </template>
@@ -22,7 +26,8 @@ export default {
         'title_original',
         'language',
         'vote',
-        'image'
+        'image',
+        'overview'
     ],
     data() {
 
@@ -74,7 +79,12 @@ img {
 }
 
 .box-serieTv {
-    height: 300px;
+    height: 350px;
     width: 250px;
+
+}
+
+.overflow {
+    overflow-y: auto;
 }
 </style>

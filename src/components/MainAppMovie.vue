@@ -1,14 +1,19 @@
 <template>
     <div class="bg-danger d-flex flex-column align-items-center m-5 box-movie  ">
-        <h5>Titolo : {{ titolo }}</h5>
-        <h5>Titolo originale: {{ titolo_originale }}</h5>
+        <h5><b>Titolo :</b> {{ titolo }}</h5>
+        <h5><b>Titolo originale:</b> {{ titolo_originale }}</h5>
         <div>
             <img :src="addFlagTv" :alt="lingua + 'flag'">
             <img :src="imagePath" />
         </div>
         <div>
             <i v-for="num in 5" :key="num" class="fa-star" :class="(num <= getStar) ? 'fa-solid' : 'fa-regular'"></i>
+
         </div>
+        <div class="overflow">
+            <b>Overview:</b> {{ overview }}
+        </div>
+
 
 
     </div>
@@ -24,7 +29,8 @@ export default {
         'titolo_originale',
         'lingua',
         'voto',
-        'immagine'
+        'immagine',
+        'overview'
 
 
     ],
@@ -87,9 +93,12 @@ img {
 }
 
 .box-movie {
-    height: 300px;
+    height: 350px;
     width: 250px;
 
+}
 
+.overflow {
+    overflow-y: auto;
 }
 </style>

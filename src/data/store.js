@@ -18,7 +18,7 @@ export const store = reactive({
 
     movieList: [],
     serieTvList: [],
-    img: "https://image.tmdb.org/t/p/w780",
-   
+    img: "https://image.tmdb.org/t/p/w342",
+
 
 });

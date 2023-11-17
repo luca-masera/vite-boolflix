@@ -9,7 +9,8 @@
 
       <div class="row d-flex flex-wrap" v-for="(movie, index) in store.movieList">
         <MainAppMovie :titolo="movie.title" :titolo_originale="movie.original_title" :lingua="movie.original_language"
-          :voto="movie.vote_average" :immagine="movie.poster_path" />
+          :voto="movie.vote_average" :immagine="movie.poster_path" :overview="movie.overview
+          " />
 
       </div>
     </div>
@@ -18,7 +19,7 @@
 
       <div class=" row d-flex flex-wrap" v-for="(serieTv, index) in store.serieTvList">
         <MainAppTV :title="serieTv.name" :title_original="serieTv.original_name" :language="serieTv.original_language"
-          :vote="serieTv.vote_average" :image="serieTv.poster_path" />
+          :vote="serieTv.vote_average" :image="serieTv.poster_path" :overview="serieTv.overview" />
 
       </div>
 
