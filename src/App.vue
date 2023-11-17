@@ -1,28 +1,30 @@
 <template>
-  <section class="container">
+  <div class="box">
     <SearchBar @searchMovie=searchFilm />
-  </section>
-  <div id="movie" class="container">
-    <h3>Movies</h3>
-    <div class="row">
-      <div class="my-3" v-for="(movie, index) in store.movieList">
+  </div>
+  <div class="background-wrapper">
+
+    <h2 class="pt-3">FILM</h2>
+    <div id="movie" class="container d-flex flex-wrap  ">
+
+      <div class="row d-flex flex-wrap" v-for="(movie, index) in store.movieList">
         <MainAppMovie :titolo="movie.title" :titolo_originale="movie.original_title" :lingua="movie.original_language"
           :voto="movie.vote_average" :immagine="movie.poster_path" />
 
-
       </div>
     </div>
-    <div id="serieTv" class="container">
-      <h3>serie Tv</h3>
-      <div class="row">
-        <div class="my-3" v-for="(serieTv, index) in store.serieTvList">
-          <MainAppTV :title="serieTv.name" :title_original="serieTv.original_name" :language="serieTv.original_language"
-            :vote="serieTv.vote_average" :image="serieTv.poster_path" />
+    <h2>SERIE TV</h2>
+    <div id="serieTV" class="container d-flex flex-wrap  ">
 
-        </div>
+      <div class=" row d-flex flex-wrap" v-for="(serieTv, index) in store.serieTvList">
+        <MainAppTV :title="serieTv.name" :title_original="serieTv.original_name" :language="serieTv.original_language"
+          :vote="serieTv.vote_average" :image="serieTv.poster_path" />
+
       </div>
-    </div>
 
+
+
+    </div>
   </div>
 </template>
 
@@ -95,4 +97,20 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="css" scoped>
+.background-wrapper {
+  background-color: rgb(58, 55, 55);
+}
+
+.box {
+
+  height: 130px;
+  background-color: black;
+}
+
+
+h2 {
+  color: greenyellow;
+  text-align: center;
+}
+</style>

@@ -1,13 +1,15 @@
 <template>
-    <div class="container bg-info ">
-        <h2>{{ title }}</h2>
-        <h2>{{ title_original }}</h2>
+    <div class=" bg-white d-flex flex-column align-items-center m-5  box-serieTv ">
+
+        <h5>Titolo: {{ title }}</h5>
+        <h5>Titolo originale: {{ title_original }}</h5>
         <div>
             <img :src="addFlagSerieTv" :alt="language + 'flagTv'">
             <img :src="imagePathTv" />
         </div>
-        <i v-for="num in 5" :key="num" class="fa-star" :class="(num <= getStar) ? 'fa-solid' : 'fa-regular'"></i>
-
+        <div>
+            <i v-for="num in 5" :key="num" class="fa-star" :class="(num <= getStar) ? 'fa-solid' : 'fa-regular'"></i>
+        </div>
     </div>
 </template>
 
@@ -69,5 +71,10 @@ export default {
 <style lang="css" scoped>
 img {
     width: 50px;
+}
+
+.box-serieTv {
+    height: 300px;
+    width: 250px;
 }
 </style>

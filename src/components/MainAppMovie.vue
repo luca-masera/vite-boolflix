@@ -1,13 +1,15 @@
 <template>
-    <div class="container bg-danger bg ">
-        <h2>{{ titolo }}</h2>
-        <h2>{{ titolo_originale }}</h2>
+    <div class="bg-danger d-flex flex-column align-items-center m-5 box-movie  ">
+        <h5>Titolo : {{ titolo }}</h5>
+        <h5>Titolo originale: {{ titolo_originale }}</h5>
         <div>
             <img :src="addFlagTv" :alt="lingua + 'flag'">
             <img :src="imagePath" />
         </div>
+        <div>
+            <i v-for="num in 5" :key="num" class="fa-star" :class="(num <= getStar) ? 'fa-solid' : 'fa-regular'"></i>
+        </div>
 
-        <i v-for="num in 5" :key="num" class="fa-star" :class="(num <= getStar) ? 'fa-solid' : 'fa-regular'"></i>
 
     </div>
 </template>
@@ -83,5 +85,11 @@ export default {
 img {
     width: 50px;
 }
+
+.box-movie {
+    height: 300px;
+    width: 250px;
+
+
+}
 </style>
-{{}}
