@@ -7,7 +7,7 @@
     <h2 class="pt-3">FILM</h2>
     <div id="movie" class="container d-flex flex-wrap  ">
 
-      <div class="row d-flex flex-wrap" v-for="(movie, index) in store.movieList">
+      <div class="row d-flex flex-wrap" v-for="(movie, index) in store.movieList" :key="movie.id">
         <MainAppMovie :titolo="movie.title" :titolo_originale="movie.original_title" :lingua="movie.original_language"
           :voto="movie.vote_average" :immagine="movie.poster_path" :overview="movie.overview
           " />
@@ -17,9 +17,9 @@
     <h2>SERIE TV</h2>
     <div id="serieTV" class="container d-flex flex-wrap  ">
 
-      <div class=" row d-flex flex-wrap" v-for="(serieTv, index) in store.serieTvList">
-        <MainAppTV :title="serieTv.name" :title_original="serieTv.original_name" :language="serieTv.original_language"
-          :vote="serieTv.vote_average" :image="serieTv.poster_path" :overview="serieTv.overview" />
+      <div class=" row d-flex flex-wrap" v-for="(serieTv, index) in store.serieTvList" :key="serieTv.id">
+        <MainAppMovie :titolo="serieTv.name" :titolo_originale="serieTv.original_name" :lingua="serieTv.original_language"
+          :voto="serieTv.vote_average" :immagine="serieTv.poster_path" :overview="serieTv.overview" />
 
       </div>
 
@@ -34,14 +34,14 @@ import SearchBar from './components/searchBar.vue';
 import axios from 'axios'
 import { store } from './data/store.js';
 import MainAppMovie from './components/MainAppMovie.vue';
-import MainAppTV from './components/MainAppTV.vue'
+//import MainAppTV from './components/MainAppTV.vue'
 
 export default {
   name: 'App',
   components: {
     SearchBar,
     MainAppMovie,
-    MainAppTV
+    //MainAppTV
   },
   data() {
 

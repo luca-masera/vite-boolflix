@@ -1,4 +1,4 @@
-<template>
+<!--<template>
     <div class=" bg-white d-flex flex-column align-items-center m-5  box-serieTv ">
 
         <h5><b>Titolo :</b> {{ title }}</h5>
@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { store } from '../data/store.js';
+/*import { store } from '../data/store.js';
 export default {
     name: 'MainAppTV',
     props: [
@@ -87,4 +87,4 @@ img {
 .overflow {
     overflow-y: auto;
 }
-</style>
+</style>*/

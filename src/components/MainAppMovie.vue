@@ -2,8 +2,8 @@
     <div class="d-flex flex-column align-items-center my-2 mx-2  box-movie">
         <div class="box-inner">
             <div class="box-text">
-                <h5 class="color"><b>Titolo :</b> {{ titolo }}</h5>
-                <h5 class="color"><b>Titolo originale:</b> {{ titolo_originale }}</h5>
+                <h6 class="color"><b>Titolo :</b> {{ titolo }}</h6>
+                <h6 class="color"><b>Titolo originale:</b> {{ titolo_originale }}</h6>
                 <div>
                     <img class="img-flags" :src="addFlagTv" :alt="lingua">
 
@@ -53,7 +53,7 @@ export default {
                 'es',
                 'fr',
                 'de',
-                'india',
+                'ìndia',
                 'it',
                 'ja',
                 'usa'
@@ -73,7 +73,7 @@ export default {
             let flag = `/images/${this.lingua}.png`;
 
             if (!this.flags.includes(this.lingua)) {
-                flag = `/images/fake.png`
+                flag = `/images/not-found1.png`
 
             }
             return flag
@@ -85,7 +85,7 @@ export default {
             let image = store.img + this.immagine
 
             if (this.immagine === null) {
-                image = '/images/stop.png'
+                image = '/images/not-found1.png'
             }
             console.log(image)
             return image
@@ -101,7 +101,7 @@ export default {
 }
 
 .img-flags {
-    width: 10px;
+    width: 45px;
 }
 
 .box-movie {
@@ -142,8 +142,10 @@ export default {
     position: absolute;
     width: 100%;
     height: 100%;
+
     backface-visibility: hidden;
     background-color: black;
+
 }
 
 .box-image {
@@ -153,5 +155,7 @@ export default {
 
 .box-text {
     transform: rotateY(180deg);
+    overflow-y: auto;
+    padding: 20px;
 }
 </style>
