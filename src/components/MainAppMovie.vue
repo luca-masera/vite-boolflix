@@ -1,17 +1,25 @@
 <template>
-    <div class="bg-danger d-flex flex-column align-items-center m-5 box-movie  ">
-        <h5><b>Titolo :</b> {{ titolo }}</h5>
-        <h5><b>Titolo originale:</b> {{ titolo_originale }}</h5>
-        <div>
-            <img :src="addFlagTv" :alt="lingua + 'flag'">
-            <img :src="imagePath" />
-        </div>
-        <div>
-            <i v-for="num in 5" :key="num" class="fa-star" :class="(num <= getStar) ? 'fa-solid' : 'fa-regular'"></i>
+    <div class="d-flex flex-column align-items-center my-2 mx-2  box-movie">
+        <div class="box-inner">
+            <div class="box-text">
+                <h5 class="color"><b>Titolo :</b> {{ titolo }}</h5>
+                <h5 class="color"><b>Titolo originale:</b> {{ titolo_originale }}</h5>
+                <div>
+                    <img class="img-flags" :src="addFlagTv" :alt="lingua">
 
-        </div>
-        <div class="overflow">
-            <b>Overview:</b> {{ overview }}
+                </div>
+                <div class="star-color">
+                    <i v-for="num in 5" :key="num" class="fa-star"
+                        :class="(num <= getStar) ? 'fa-solid' : 'fa-regular'"></i>
+
+                </div>
+                <div class="overflow color">
+                    <b>Overview:</b> {{ overview }}
+                </div>
+            </div>
+            <div class="box-image">
+                <img class="img-movie" :src="imagePath" />
+            </div>
         </div>
 
 
@@ -88,17 +96,62 @@ export default {
 </script>
 
 <style lang="css" scoped>
-img {
-    width: 50px;
+.img-movie {
+    width: 100%;
+}
+
+.img-flags {
+    width: 10px;
 }
 
 .box-movie {
-    height: 350px;
+    height: 335px;
     width: 250px;
+    margin: 10px;
+    background-color: transparent;
+    perspective: 1000px;
 
 }
 
 .overflow {
     overflow-y: auto;
+}
+
+.color {
+    color: white;
+}
+
+.star-color {
+    color: yellow;
+}
+
+.box-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: 1s;
+    transform-style: preserve-3d;
+}
+
+.box-movie:hover .box-inner {
+    transform: rotateY(180deg);
+}
+
+.box-image,
+.box-text {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background-color: black;
+}
+
+.box-image {
+    color: aqua;
+
+}
+
+.box-text {
+    transform: rotateY(180deg);
 }
 </style>
